@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Govind Sharma | Java Full Stack Developer</title>
+<meta name="description" content="Java Full Stack Developer building scalable enterprise applications with Spring Boot, Microservices, Kafka, Docker, React and Spring AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1220;--surface:#111b2e;--ink:#e8edf6;--muted:#9aa8c0;--line:#223049;
+  --accent:#5b8cff;--accent-ink:#0b1220;--amber:#f0b25a;--chip:#17243d;
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color-scheme:dark;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root[data-theme="light"]{--bg:#f5f6f8;--surface:#ffffff;--ink:#0e1a2b;--muted:#51607a;--line:#d9dee7;--accent:#1f5eff;--accent-ink:#ffffff;--amber:#b86e00;--chip:#e9eefb;color-scheme:light}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font-weight:800;text-decoration:none;letter-spacing:-.02em}
+.nav nav{display:flex;gap:22px;overflow-x:auto;scrollbar-width:none}
+.nav nav a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:600;white-space:nowrap}
+.nav nav a:hover{color:var(--ink)}
+.tbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;width:36px;height:36px;cursor:pointer;font-size:15px;flex:none}
+
+/* hero */
+.hero{padding-top:72px;padding-bottom:56px}
+.hero h1{font-size:clamp(40px,7vw,76px);line-height:1.02;letter-spacing:-.04em;margin:0 0 20px;font-weight:800}
+.hero .role{font-size:clamp(18px,2.4vw,24px);color:var(--muted);max-width:640px;margin:0 0 28px;font-weight:500}
+.hero .role b{color:var(--ink)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:48px}
+.btn{display:inline-block;padding:12px 22px;border-radius:10px;font-weight:700;text-decoration:none;border:1px solid var(--line);background:var(--surface)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{filter:brightness(1.07)}
+
+/* the one memorable element: request flow */
+.flow{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;position:relative;overflow:hidden}
+.flow h2{font-size:15px;margin:0 0 4px;font-weight:700}
+.flow p{margin:0 0 20px;color:var(--muted);font-size:14px}
+.track{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.track::before{content:"";position:absolute;left:10%;right:10%;top:26px;height:2px;background:var(--line)}
+.track::after{content:"";position:absolute;top:21px;left:10%;width:12px;height:12px;border-radius:50%;background:var(--accent);animation:travel 5s ease-in-out infinite}
+@keyframes travel{0%{left:10%;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:calc(90% - 12px);opacity:0}}
+.node{text-align:center;position:relative;z-index:1;padding:0 6px}
+.node i{display:grid;place-items:center;width:52px;height:52px;margin:0 auto 10px;border-radius:14px;background:var(--chip);border:1px solid var(--line);font-style:normal;font-weight:800;font-size:13px;color:var(--accent)}
+.node strong{display:block;font-size:14px}
+.node span{font-size:12px;color:var(--muted);line-height:1.4;display:block}
+.infra{margin-top:20px;padding-top:16px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted)}
+.infra b{color:var(--ink)}
+@media (max-width:640px){
+  .track{grid-template-columns:1fr;gap:14px}
+  .track::before,.track::after{display:none}
+  .node{display:flex;gap:14px;text-align:left;align-items:center}
+  .node i{margin:0;flex:none}
+}
+@media (prefers-reduced-motion:reduce){.track::after{animation:none;display:none}html{scroll-behavior:auto}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:1px solid var(--line)}
+.stat{padding:22px 16px 6px 0}
+.stat strong{display:block;font-size:clamp(28px,4vw,40px);letter-spacing:-.03em;line-height:1.1}
+.stat span{color:var(--muted);font-size:14px}
+@media (max-width:640px){.stats{grid-template-columns:1fr 1fr}}
+
+/* sections */
+section{padding:64px 0;border-top:1px solid var(--line)}
+section h2.t{font-size:clamp(26px,4vw,36px);letter-spacing:-.03em;margin:0 0 28px;line-height:1.15}
+.lead{font-size:18px;max-width:760px;margin:0}
+.lead b{font-weight:700}
+
+/* skills */
+.skills{display:grid;gap:0}
+.srow{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.srow:first-child{border-top:1px solid var(--line)}
+.srow h3{margin:0;font-size:15px;color:var(--muted);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:var(--chip);border:1px solid var(--line);padding:4px 12px;border-radius:8px;font-size:14px;font-weight:600}
+.chip.new{border-color:var(--accent);color:var(--accent)}
+@media (max-width:640px){.srow{grid-template-columns:1fr;gap:8px}}
+
+/* experience */
+.role-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 20px;margin-bottom:18px}
+.role-head h3{margin:0;font-size:22px;letter-spacing:-.02em}
+.role-head p{margin:0;color:var(--muted)}
+ul.pts{margin:0;padding-left:20px;display:grid;gap:10px;max-width:820px}
+ul.pts li::marker{color:var(--accent)}
+
+/* projects */
+.proj{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:32px;padding:32px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj h3{margin:0 0 4px;font-size:34px;letter-spacing:-.03em;line-height:1.1}
+.proj .sub{margin:0 0 14px;color:var(--muted);font-size:14px}
+.proj .chips .chip{font-size:12px;padding:3px 10px}
+@media (max-width:760px){.proj{grid-template-columns:1fr;gap:16px}}
+
+/* education + certs */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.two h3{margin:0 0 6px;font-size:18px}
+.two p{margin:0;color:var(--muted)}
+.certs{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.certs li{padding-left:22px;position:relative}
+.certs li::before{content:"";position:absolute;left:0;top:.6em;width:10px;height:10px;border-radius:3px;background:var(--accent)}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+
+.edu{margin:0 0 6px;font-size:20px}.edup{margin:0;color:var(--muted)}
+.cl{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.cl li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.cl strong{display:block;font-size:17px;line-height:1.35}.cl span{color:var(--muted);font-size:14px}
+.cl a{flex:none;font-weight:600;font-size:14px;color:var(--accent);text-decoration:none;border:1px solid var(--line);padding:6px 12px;border-radius:8px}
+.cl a:hover{border-color:var(--accent)}
+/* contact */
+.contact h2.t{font-size:clamp(30px,5vw,52px)}
+.clinks{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+footer{padding:28px 0 36px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">Govind Sharma</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="tbtn" id="theme" type="button" aria-label="Switch colour theme">◐</button>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap hero">
+  <h1>Govind Sharma</h1>
+  <p class="role"><b>Java Full Stack Developer</b> building scalable enterprise applications with Spring Boot, Microservices, Kafka and Docker. 2.5+ years shipping government Document Management Systems.</p>
+  <div class="cta">
+    <a class="btn primary" href="mailto:sharmagovind0489@gmail.com">Email me</a>
+    <a class="btn" href="https://www.linkedin.com/in/govind-sharma-5157bb21a" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="#projects">See projects</a>
+  </div>
+
+  <div class="flow" aria-label="Typical request flow in my applications">
+    <h2>How a request travels through the systems I build</h2>
+    <p>From the browser to the database, with each layer secured, observable and ready to scale.</p>
+    <div class="track">
+      <div class="node"><i>UI</i><div><strong>React</strong><span>Redux Toolkit</span></div></div>
+      <div class="node"><i>API</i><div><strong>REST APIs</strong><span>Spring Boot, Swagger</span></div></div>
+      <div class="node"><i>SEC</i><div><strong>Security</strong><span>Spring Security, OTP, HTTPS</span></div></div>
+      <div class="node"><i>MQ</i><div><strong>Kafka</strong><span>Event-driven services</span></div></div>
+      <div class="node"><i>DB</i><div><strong>Data</strong><span>MySQL, PostgreSQL, pgvector</span></div></div>
+    </div>
+    <div class="infra"><b>Packaged and deployed with</b> Docker on AWS EC2 and Apache Tomcat. <b>AI layer:</b> Spring AI, Gemini and RAG for document insights.</div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><strong>2.5+</strong><span>Years of experience</span></div>
+    <div class="stat"><strong>6–7</strong><span>Government DMS projects</span></div>
+    <div class="stat"><strong>30%</strong><span>Better query efficiency</span></div>
+    <div class="stat"><strong>80%</strong><span>Faster data retrieval</span></div>
+  </div>
+</div>
+
+<section id="about"><div class="wrap">
+  <h2 class="t">About me</h2>
+  <p class="lead"><b>Java Backend Developer</b> with 2.5+ years of experience building and optimizing enterprise-grade applications using <b>Java, Spring Boot, REST APIs and MySQL</b>. I have contributed to 6–7 <b>Document Management System (DMS)</b> projects for the Indian Government and 2 full-stack applications, with a focus on API performance, query optimization and scalable backend solutions. My work has delivered up to <b>20%</b> better API performance and <b>30%</b> improved database query efficiency.</p>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2 class="t">Skills</h2>
+  <div class="skills">
+    <div class="srow"><h3>Languages</h3><div class="chips"><span class="chip">Java 8</span><span class="chip">Java 17</span><span class="chip">SQL</span></div></div>
+    <div class="srow"><h3>Backend</h3><div class="chips"><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span><span class="chip">Spring JSP</span><span class="chip">Spring Data JPA</span><span class="chip">Spring Security</span><span class="chip">Microservices</span><span class="chip">REST APIs</span></div></div>
+    <div class="srow"><h3>Messaging and DevOps</h3><div class="chips"><span class="chip new">Apache Kafka</span><span class="chip new">Docker</span><span class="chip">AWS EC2</span><span class="chip">Apache Tomcat</span></div></div>
+    <div class="srow"><h3>Frontend</h3><div class="chips"><span class="chip">React</span><span class="chip">Redux Toolkit</span></div></div>
+    <div class="srow"><h3>Database</h3><div class="chips"><span class="chip">MySQL</span><span class="chip">PostgreSQL</span><span class="chip">pgvector</span></div></div>
+    <div class="srow"><h3>AI</h3><div class="chips"><span class="chip">Spring AI</span><span class="chip">Gemini Flash</span><span class="chip">RAG</span></div></div>
+    <div class="srow"><h3>Tools</h3><div class="chips"><span class="chip">Postman</span><span class="chip">Swagger</span><span class="chip">GitHub</span><span class="chip">Maven</span><span class="chip">IntelliJ IDEA</span><span class="chip">STS</span></div></div>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <h2 class="t">Experience</h2>
+  <div class="role-head">
+    <div><h3>Software Engineer</h3><p>Neel Data Pro IT Solutions Pvt. Ltd., Noida, Uttar Pradesh</p></div>
+    <p>Aug 2024 – Present · Full-time, onsite</p>
+  </div>
+  <ul class="pts">
+    <li>Developed and enhanced <b>6–7 Document Management System (DMS) applications</b> for Indian government departments, focusing on secure document workflows, data management and scalable backend architecture.</li>
+    <li>Engineered <b>2 full-stack applications</b> using Spring Boot and React, delivering integrated backend services and responsive user interfaces.</li>
+    <li>Designed and maintained secure, high-performance <b>REST APIs for KPMG’s frontend team</b>, emphasizing reliable data exchange and efficient processing.</li>
+    <li>Optimized SQL queries, database interactions and backend request processing, achieving up to <b>30% improvement in query efficiency</b> and <b>20% better API performance</b>.</li>
+    <li>Managed collaborative development using <b>GitHub</b>, including branching strategies, pull requests, code integration and merge conflict resolution.</li>
+  </ul>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2 class="t">Projects</h2>
+
+  <article class="proj">
+    <div><h3>IGRS</h3><p class="sub">Government DMS with a Document AI layer</p>
+      <div class="chips"><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span><span class="chip">Microservices</span><span class="chip">MySQL</span><span class="chip">Swagger</span><span class="chip">Spring AI</span><span class="chip">pgvector</span><span class="chip">Gemini</span><span class="chip">RAG</span></div></div>
+    <ul class="pts">
+      <li>Engineered a government-focused <b>DMS</b> supporting single and bulk document registration, secure PDF processing, retrieval and end-to-end auditability across multiple workflows.</li>
+      <li>Developed secure REST APIs for <b>KPMG and mobile applications</b>, strengthening access control and improving API performance by up to <b>20%</b> through backend optimization.</li>
+      <li>Integrated <b>Razorpay payment workflows</b> with transaction verification, retry handling and failure recovery to improve payment reliability.</li>
+      <li>Built a <b>Gemini-powered Document AI solution</b> combining RAG, vector search and live database retrieval to deliver context-aware responses and structured document insights.</li>
+    </ul>
+  </article>
+
+  <article class="proj">
+    <div><h3>HPDA</h3><p class="sub">Enterprise DMS with dual PDF workflows</p>
+      <div class="chips"><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span><span class="chip">Spring Security</span><span class="chip">SQL</span><span class="chip">Tomcat</span><span class="chip">AWS EC2</span></div></div>
+    <ul class="pts">
+      <li>Developed an enterprise-grade <b>DMS with dual PDF processing workflows</b>, implementing secure document handling, Spring Security, automated email reporting and comprehensive audit trails for end-to-end traceability.</li>
+      <li>Optimized SQL queries and database interactions, achieving up to <b>30% improvement in query efficiency</b> and faster document retrieval.</li>
+      <li>Configured <b>two-phase document processing and validation workflows</b> to strengthen data consistency, reduce processing errors and improve reliability.</li>
+      <li>Managed deployment and Tomcat configuration on <b>AWS EC2</b>, with HTTPS security, automated service management and deployment-level monitoring.</li>
+    </ul>
+  </article>
+
+  <article class="proj">
+    <div><h3>Shimla RTO</h3><p class="sub">OCR-enabled RTO DMS at the HP Data Center</p>
+      <div class="chips"><span class="chip">Spring Boot</span><span class="chip">Spring MVC</span><span class="chip">SQL</span><span class="chip">Tomcat 11</span><span class="chip">Tesseract OCR</span><span class="chip">OTP Service</span></div></div>
+    <ul class="pts">
+      <li>Developed an enterprise-grade <b>RTO DMS</b> with Tesseract OCR, dedicated data-entry panels, voice-enabled input and streamlined document processing workflows.</li>
+      <li>Implemented <b>Spring Security and government OTP authentication</b>, strengthening access control for applications deployed at the Himachal Pradesh Data Center.</li>
+      <li>Resolved <b>Data Center security audit findings</b>: strengthened HTTP security headers, mitigated XSS risks, added clickjacking protection through X-Frame-Options and enforced HTTPS.</li>
+      <li>Improved data retrieval performance by up to <b>80%</b> through server-side pagination and optimized database queries, reducing unnecessary data transfer for large datasets.</li>
+    </ul>
+  </article>
+</div></section>
+
+<section id="education"><div class="wrap">
+  <h2 class="t">Education</h2>
+  <h3 class="edu">Bachelor of Technology in Computer Science</h3>
+  <p class="edup">APJ Abdul Kalam Technical University, Lucknow, India<br>2020 – 2024 · CGPA 8.3/10</p>
+</div></section>
+
+<section id="certifications"><div class="wrap">
+  <h2 class="t">Certifications</h2>
+  <ul class="cl">
+    <li><div><strong>AWS Certification</strong><span>Scaler · Sep 2026</span></div></li>
+    <li><div><strong>JPMorgan Chase Software Engineering Job Simulation</strong><span>Forage · May 2026</span></div><a href="https://www.theforage.com/completion-certificates/Sj7temL583QAYpHXD/E6McHJDKsQYh79moz_Sj7temL583QAYpHXD_6a1435bcdf290a68a05eb914_1779964972047_completion_certificate.pdf" target="_blank" rel="noopener">View credential</a></li>
+    <li><div><strong>SQL Certification</strong><span>GeeksforGeeks · Dec 2025</span></div><a href="https://media.geeksforgeeks.org/courses/certificates/8c295ba84ea77b18ad5c553f0b9d24f8.pdf" target="_blank" rel="noopener">View credential</a></li>
+    <li><div><strong>SQL (Advanced) Certification</strong><span>HackerRank · Jul 2025</span></div><a href="https://www.hackerrank.com/certificates/14df9bdf8f8a" target="_blank" rel="noopener">View credential</a></li>
+    <li><div><strong>Java 8 Certification</strong><span>Infosys · Aug 2024</span></div><a href="https://drive.google.com/file/d/1aGkK8YIVhLNqsE9emxhwHboLPY5Rc8-i/view?usp=drivesdk" target="_blank" rel="noopener">View credential</a></li>
+    <li><div><strong>Frontend Developer (React) Certification</strong><span>HackerRank · Aug 2024</span></div><a href="https://www.hackerrank.com/certificates/77508261c115" target="_blank" rel="noopener">View credential</a></li>
+    <li><div><strong>Spring Boot Certification</strong><span>Scaler · Jun 2024</span></div></li>
+    <li><div><strong>Java Full Stack Certification</strong><span>Ducat Education</span></div></li>
+  </ul>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2 class="t">Let’s build something reliable together.</h2>
+  <p class="lead">I’m open to Java full stack and backend roles. The quickest way to reach me is by email or phone.</p>
+  <div class="clinks">
+    <a class="btn primary" href="mailto:sharmagovind0489@gmail.com">sharmagovind0489@gmail.com</a>
+    <a class="btn" href="tel:+919258518354">+91-9258518354</a>
+    <a class="btn" href="https://www.linkedin.com/in/govind-sharma-5157bb21a" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Govind Sharma · Noida, Uttar Pradesh, India</div></footer>
+
+<script>
+(function(){
+  var r=document.documentElement,b=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme');if(s)r.setAttribute('data-theme',s)}catch(e){}
+  b.addEventListener('click',function(){
+    var dark=r.getAttribute('data-theme')!=='light';
+    var n=dark?'light':'dark';r.setAttribute('data-theme',n);
+    try{localStorage.setItem('theme',n)}catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
